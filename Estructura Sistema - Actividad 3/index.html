@@ -4,44 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help Desk - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Sistema Help Desk</h1>
         <p>Gestión de Incidentes Tecnológicos</p>
     </header>
-    <nav>
-        <a href="index.html">Inicio</a> |
-        <a href="reportar.html">Reportar Incidente</a> |
+
+    <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="reportar.html">Reportar Incidente</a>
         <a href="tickets.html">Tickets Registrados</a>
     </nav>
-    <main>
-        <section>
+
+    <main class="container">
+        <section class="section">
             <h2>Bienvenido</h2>
-            <article>
+            <article class="card">
                 <h3>
                     Bienvenido al sistema Help Desk para la gestión y seguimiento
                     de incidentes tecnológicos.
                 </h3>
             </article>
         </section>
-        <section>
+
+        <section class="section">
             <h2>Resumen General</h2>
-            <article>
-                <h3>Tickets Abiertos</h3>
-                <p>10</p>
-            </article>
-            <article>
-                <h3>Tickets En Proceso</h3>
-                <p>5</p>
-            </article>
-            <article>
-                <h3>Tickets Cerrados</h3>
-                <p>25</p>
-            </article>
+
+            <div class="dashboard-grid">
+                <article class="card">
+                    <h3>Tickets Abiertos</h3>
+                    <p class="number">10</p>
+                </article>
+
+                <article class="card">
+                    <h3>Tickets En Proceso</h3>
+                    <p class="number">5</p>
+                </article>
+
+                <article class="card">
+                    <h3>Tickets Cerrados</h3>
+                    <p class="number">25</p>
+                </article>
+            </div>
         </section>
     </main>
-    <footer>
+
+    <footer class="footer bg-primary text-white text-center py-3">
         <p>Help Desk - Desarrollo de Sistemas Informáticos</p>
         <p>2026</p>
     </footer>
