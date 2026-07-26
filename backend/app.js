@@ -12,22 +12,20 @@ const origenesPermitidos = [
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || origenesPermitidos.includes(origin)) {
-        return callback(null, true);
-      }
+const configuracionCors = {
+  origin: (origin, callback) => {
+    if (!origin || origenesPermitidos.includes(origin)) {
+      return callback(null, true);
+    }
 
-      console.log("Origen bloqueado por CORS:", origin);
-      return callback(new Error("Origen no permitido por CORS"));
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+    console.log("Origen bloqueado por CORS:", origin);
+    return callback(new Error("Origen no permitido por CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
 
-app.options("*", cors());
+app.use(cors(configuracionCors));
 
 app.use(express.json());
 
@@ -38,6 +36,12 @@ app.get("/", (req, res) => {
 });
 
 app.use("/tickets", ticketsRoutes);
+
+app.use((req, res) => {
+  res.status(404).json({
+    mensaje: "Ruta no encontrada",
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 
